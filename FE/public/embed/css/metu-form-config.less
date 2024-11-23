@@ -1,0 +1,206 @@
+
+@import url("./embedInfrastructure.less");
+/* Mở terminal cd tới thư mục css này -> chạy: lessc metu-form-config.less  metu-form-config.css  */
+
+:root {
+  --metu-form-title-background-color: #992f34;
+  --metu-form-title-text-color: #ffff;
+  --metu-form-font-family: Tahoma, Verdana, Geneva, sans-serif;
+  
+}
+
+/* Cấu hình form */
+.metu-widget-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  max-width: 550px;
+  min-width: 300px;
+  max-height: 600px;
+  padding: 10px 8px;
+  margin: auto;
+  border: rgb(225, 222, 222) 1px solid;
+  border-radius: 6px;
+  box-shadow: rgb(215, 214, 214) 2px 1px 5px 0px;
+  font-family: var(--metu-form-font-family);
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 5%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .metu-widget-form {
+    animation: fadeInUpMobile 0.8s forwards;
+  }
+}
+
+@keyframes fadeInUpMobile {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 6%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (min-width: 576px) {
+  .metu-widget-form {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .metu-widget-form {
+    width: 60%;
+  }
+}
+
+@media (min-width: 992px) {
+  .metu-widget-form {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .metu-widget-form {
+    width: 40%;
+  }
+}
+
+.metu-widget-form .metu-form-title {
+  background-color: var(--metu-form-title-background-color);
+  color: var(--metu-form-title-text-color);
+  font-weight: bolder;
+  padding: 10px 20px;
+  text-wrap: wrap;
+  border-radius: 7px 7px 0 0;
+}
+
+.metu-widget-form .metu-form-content {
+  position: relative;
+  padding: 25px 20px;
+  margin-bottom: 10px;
+  text-wrap: wrap;
+  border: var(--metu-form-title-background-color) 1px solid;
+  border-radius: 0 0 7px 7px;
+  display: grid;
+  gap: 15px;
+  overflow-y: hidden;
+}
+
+.metu-widget-form .metu-form-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("@{metu-form-content-background-image}");
+  /* background-size: cover; */
+  opacity: 0.06;
+  z-index: -1;
+  border-radius: 7px;
+}
+
+.metu-widget-form .metu-form-note{
+  color: var(--metu-form-title-background-color);
+  text-align: center;
+  border: var(--metu-form-title-background-color) 1px solid;
+}
+
+
+.metu-widget-form .metu-form-main {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.metu-form-field input {
+  width: 100%;
+  height: 40px;
+  border: gray 0.5px solid;
+  outline: none;
+}
+
+.metu-form-field input:focus {
+  outline: var(--metu-form-title-background-color) 0.7px solid;
+}
+
+
+.metu-form-field > p {
+  margin: 10px 5px;
+}
+.metu-form-field > p:first-child {
+  font-weight: bolder;
+}
+
+.metu-form-field > *:not(:first-child) {
+  margin-left: 20px;
+}
+
+.metu-form-error{
+  color: red;
+  font-size: 7px;
+  opacity: 0;
+}
+
+.metu-form-field > p > .metu-form-icon-phone {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-image: url('@{metu-form-icon-phone}');
+    -webkit-mask: url('@{metu-form-icon-phone}') no-repeat center;
+    mask: url('@{metu-form-icon-phone}') no-repeat center;
+    background-color: var(--metu-form-title-background-color);
+    vertical-align: middle;
+}
+
+.metu-form-field > p > .metu-form-icon-work {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-image: url('@{metu-form-icon-work-outline}');
+    -webkit-mask: url('@{metu-form-icon-work-outline}') no-repeat center;
+    mask: url('@{metu-form-icon-work-outline}') no-repeat center;
+    background-color: var(--metu-form-title-background-color);
+    vertical-align: middle;
+}
+
+.metu-form-field > p > a {
+  text-decoration: none;
+  color: darkblue;
+}
+
+.metu-widget-form .metu-form-footer {
+  text-align: center;
+}
+
+.metu-widget-form .metu-form-button {
+  background-color: var(--metu-form-title-background-color);
+  color: var(--metu-form-title-text-color);
+  padding: 5px 20px;
+  margin: 1px 3px;
+  border: var(--metu-form-title-background-color) 1px solid;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.metu-widget-form .metu-form-button:hover {
+  opacity: 0.8;
+}

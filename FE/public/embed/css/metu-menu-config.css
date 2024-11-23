@@ -1,0 +1,237 @@
+
+:root {
+  --metu-menu-background-color: #29478d;
+  --metu-button-icon-color: #ecd315;
+  --metu-menu-text-color: #f9f7f7;
+  --metu-menu-opacity: 1;
+}
+
+/* Định dạng chung cho menu */
+.metu-menu {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  opacity: 1;
+  background-color: var(--metu-menu-background-color);
+}
+
+/* Định dạng cho các nút */
+.metu-menu .metu-button {
+  position: relative;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, width 0.4s ease;
+  color: var(--metu-button-icon-color);
+  height: 30px;
+}
+
+/* Đinh dạng hình dạng menu */
+.metu-shape-round,
+.metu-shape-square {
+  background-color: unset;
+  width: auto;
+  flex-direction: column;
+}
+
+.metu-shape-horizontal {
+  width: auto;
+  flex-direction: row;
+}
+
+.metu-shape-horizontal-full-width {
+  width: 100%;
+  flex-direction: row;
+}
+
+/* Định dạng vị trí menu */
+.metu-position-top-left.metu-shape-round {
+  top: 20px;
+  left: 20px;
+}
+
+.metu-position-top-right.metu-shape-round {
+  top: 20px;
+  right: 20px;
+}
+
+.metu-position-bottom-left.metu-shape-round {
+  bottom: 20px;
+  left: 20px;
+}
+.metu-position-bottom-right.metu-shape-round {
+  bottom: 20px;
+  right: 20px;
+}
+.metu-position-center-right.metu-shape-round {
+  top: 0;
+  height: 100%;
+  right: 20px;
+}
+.metu-position-center-left.metu-shape-round {
+  top: 0;
+  height: 100%;
+  left: 20px;
+}
+/*  */
+
+.metu-position-top-left.metu-shape-square {
+  top: 20px;
+  left: 0;
+}
+
+.metu-position-top-right.metu-shape-square {
+  top: 20px;
+  right: 0;
+}
+
+.metu-position-bottom-left.metu-shape-square {
+  bottom: 20px;
+  left: 0;
+}
+.metu-position-bottom-right.metu-shape-square {
+  bottom: 20px;
+  right: 0;
+}
+.metu-position-center-right.metu-shape-square {
+  top: 0;
+  height: 100%;
+  right: 0;
+}
+.metu-position-center-left.metu-shape-square {
+  top: 0;
+  height: 100%;
+  left: 0;
+}
+
+.metu-position-bottom-center {
+  padding: 0px 5px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Định dạng button theo hình dạng và vị trí */
+.metu-position-top-left .metu-button,
+.metu-position-top-right .metu-button,
+.metu-position-bottom-left .metu-button,
+.metu-position-bottom-right .metu-button,
+.metu-position-center-left .metu-button,
+.metu-position-center-right .metu-button {
+  background-color: var(--metu-menu-background-color);
+  opacity: 1;
+  width: 30px;
+  box-shadow: rgb(182, 181, 181) 1px 0px 5px;
+  margin: 5px 0;
+}
+
+.metu-shape-round .metu-button {
+  border-radius: 50%;
+  margin: 3px 0;
+}
+.metu-shape-square .metu-button {
+  margin: 1px 0;
+}
+
+.metu-shape-horizontal .metu-button,
+.metu-shape-horizontal-full-width .metu-button {
+  border-radius: 5px;
+  margin: 5px 2px;
+  background-color:  hsla(0, 0%, 100%, 0.248);
+  filter: brightness(0.9);
+  width: auto;
+  height: 25px;
+}
+
+
+.metu-svg-icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--metu-button-icon-color);
+}
+
+.metu-png-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--metu-button-icon-color);
+}
+
+/* Cấu hình hiển thị tooltip */
+.metu-menu .metu-button:hover {
+  opacity: 0.8;
+}
+
+.metu-menu .metu-button::before {
+  content: attr(tool-tip);
+  font-size: 17px;
+  font-family: Tahoma, Verdana, Geneva, sans-serif;
+  position: absolute;
+  background-color: rgb(63, 62, 62);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.4s ease;
+}
+
+.metu-menu .metu-button:hover::before {
+  opacity: 1;
+}
+
+.metu-position-top-left .metu-button::before,
+.metu-position-bottom-left .metu-button::before,
+.metu-position-center-left .metu-button::before {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.metu-position-top-right .metu-button::before,
+.metu-position-bottom-right .metu-button::before,
+.metu-position-center-right .metu-button::before {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.metu-position-top-left .metu-button:hover:before,
+.metu-position-bottom-left .metu-button:hover::before,
+.metu-position-center-left .metu-button:hover:before {
+  transform: translateY(-50%) translateX(10px);
+}
+.metu-position-top-right .metu-button:hover:before,
+.metu-position-bottom-right .metu-button:hover::before,
+.metu-position-center-right .metu-button:hover:before {
+  transform: translateY(-50%) translateX(-10px);
+}
+
+.metu-shape-horizontal .metu-button::before,
+.metu-shape-horizontal-full-width .metu-button::before {
+  bottom: 100%;
+  transform: none;
+}
+
+.metu-shape-horizontal .metu-button:hover::before,
+.metu-shape-horizontal-full-width .metu-button:hover::before {
+  transform: translateY(-50%);
+}
+
+
+/* Cấu hình hiển thị tên nút */
+.metu-txt-btn {
+  font-size: 15px;
+  white-space: nowrap;
+}
+.metu-txt-btn::before {
+  display: none;
+}
+.metu-shape-horizontal .metu-txt-btn::before,
+.metu-shape-horizontal-full-width .metu-txt-btn::before {
+  display: inline-block;
+  margin-left: 5px;
+  content: attr(tool-tip);
+}
+
